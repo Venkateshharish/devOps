@@ -1,11 +1,15 @@
-node {
-    checkout scm
-
-    docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
-
-        def customImage = docker.build("aws10/dockerapp")
-
-        /* Push the container to the custom Registry */
-        customImage.push()
+pipeline {
+    agent {dockerfile true}
+    stages{
+        stage('source'){
+        steps{
+            git 'git@github.com:Venkateshharish/devOps.git'
+        }
     }
+    stage('Running Build'){
+    steps{
+        echo 'Docker file has been successfully bulit'
+    }
+    }
+}
 }
