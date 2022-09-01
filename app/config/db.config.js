@@ -1,8 +1,8 @@
 module.exports = {
-  HOST: "127.0.0.1",
+  HOST: "tutorial-mysql-db.cwsoddk4atbk.us-east-1.rds.amazonaws.com",
   USER: "root",
-  PASSWORD: "123456",
-  DB: "testdb",
+  PASSWORD: "12345678",
+  DB: "tutorials",
   dialect: "mysql",
   pool: {
     max: 5,
