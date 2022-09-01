@@ -1,5 +1,5 @@
 FROM node:14
-WORKDIR /.
+WORKDIR /dev-task/.
 COPY package.json .
 RUN npm install
 COPY . .
