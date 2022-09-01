@@ -2,6 +2,9 @@ pipeline {
     agent {dockerfile true}
     stages{
         stage('source'){
+            environment {
+                  HOME="."
+                }
         steps{
             git 'git@github.com:Venkateshharish/devOps.git'
         }
