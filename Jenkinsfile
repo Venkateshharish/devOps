@@ -41,7 +41,7 @@ pipeline {
         
         stage('Cloning Git') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Venkateshharish/devOps']]])     
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Venkateshharish/devOps.git']]])     
             }
         }
   
@@ -49,7 +49,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
+          dockerImage = docker build -t jenkins-pipeline-docker-images .
         }
       }
     }
@@ -58,8 +58,8 @@ pipeline {
     stage('Pushing to ECR') {
      steps{  
          script {
-                sh "docker tag ${IMAGE_REPO_NAME}:${IMAGE_TAG} ${REPOSITORY_URI}:$IMAGE_TAG"
-                sh "docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG}"
+                sh "docker tag jenkins-pipeline-docker-images:latest 396785848384.dkr.ecr.us-east-1.amazonaws.com/jenkins-pipeline-docker-images:latest"
+                sh "docker push 396785848384.dkr.ecr.us-east-1.amazonaws.com/jenkins-pipeline-docker-images:latest"
          }
         }
       }
