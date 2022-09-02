@@ -24,10 +24,16 @@ pipeline{
                 }
             }
         }
+        stage('Stop Running Containers'){
+            steps{
+                sh 'docker ps -f name=node-app -q | xargs --no-run-if-empty docker container stop'
+                sh 'docker container ls -a -fname=node-app -q | xargs -r docker container rm'
+            }
+        }
         stage('Docker Run'){
             steps{
                 script{
-                    sh 'docker run -d -p 8096:8096 --rm --name node-app 396785848384.dkr.ecr.us-east-1.amazonaws.com/jenkins-pipeline-docker-images:latest'
+                    sh 'docker run -d -p 8096:5000 --rm --name node-app 396785848384.dkr.ecr.us-east-1.amazonaws.com/jenkins-pipeline-docker-images:latest'
                 }
             }
         }
