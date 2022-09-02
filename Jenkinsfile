@@ -33,7 +33,7 @@ pipeline{
         stage('Docker Run'){
             steps{
                 script{
-                    sh 'docker run -d -p 8096:5000 --rm --name node-app 396785848384.dkr.ecr.us-east-1.amazonaws.com/jenkins-pipeline-docker-images:latest'
+                    sh 'docker run -d -p 8096 --rm --name node-app 396785848384.dkr.ecr.us-east-1.amazonaws.com/jenkins-pipeline-docker-images:latest'
                 }
             }
         }
