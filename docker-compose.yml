@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   mysqldb:
-    image: mysql:latest
+    image: mysql:5.7.39
     restart: unless-stopped
     env_file: ./.env
     environment:
@@ -20,7 +20,7 @@ services:
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
     environment:
-      - DB_HOST=mysqldb
+      - DB_HOST=node-js-database.cwsoddk4atbk.us-east-1.rds.amazonaws.com
       - DB_USER=$MYSQLDB_USER
       - DB_PASSWORD=$MYSQLDB_ROOT_PASSWORD
       - DB_NAME=$MYSQLDB_DATABASE
