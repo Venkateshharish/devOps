@@ -1,0 +1,39 @@
+[
+    {
+        "name": "node-task",
+       "image": "396785848384.dkr.ecr.us-east-1.amazonaws.com/jenkins-pipeline-docker-images:latest",
+        "cpu": 1,
+        "memory": 128,
+        "links": [],
+        "portMappings": [
+            { 
+                "hostPort": 8080,
+                "containerPort": 8080,
+                "protocol": "tcp"
+            }
+        ],
+        "essential": true,
+        "entryPoint": [],
+        "command": [],
+        "environment": [
+            {
+                "name" :"HOST",
+                "value" : "node-js-database.cwsoddk4atbk.us-east-1.rds.amazonaws.com"
+            },
+            {
+                "name" : "USER",
+                "value": "root"
+            },
+            {
+                "name": "PASSWORD",
+                "value": "12345678"
+            },
+            {
+                "name": "DB",
+                "value": "nodedb"
+            }
+        ],
+        "mountPoints": [],
+        "volumesFrom": []
+    }
+  ]
