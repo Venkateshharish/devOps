@@ -24,6 +24,23 @@ pipeline{
                 }
             }
         }
+        stage('Executing Terraform')
+        {
+            steps{
+                script{
+                    sh 'Terraform init'
+                }
+            }
+        }
+        stage('Applying Terraform')
+        {
+            steps{
+                script{
+                    echo "Terraform apply"
+                    sh 'terraform apply -auto-approve' 
+                }
+            }
+        }
         /*stage('Executing Terraform')
         {
             steps{
