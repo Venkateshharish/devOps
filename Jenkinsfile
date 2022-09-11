@@ -28,8 +28,10 @@ pipeline{
         {
             steps{
                 script{
-                    sh 'cd terraform'
+                    dir('terraform'){
                     sh 'terraform init'
+                    }
+                
                 }
             }
         }
