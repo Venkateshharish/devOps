@@ -1,9 +1,9 @@
 module "iam" {
-    source = "D:/Study/node-js/terraform/iam"
+    source = "./iam"
 }
 
 module "ecs" {
-  source = "D:/Study/node-js/terraform/ecs" 
+  source = "./ecs" 
   
 }
 //VPC Creation
