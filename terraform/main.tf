@@ -143,7 +143,7 @@ resource "aws_instance" "ecs_instance" {
 }
 
 data "template_file" "userdata" {
-  template = "${file("D:/Study/node-js/terraform/userdata.tpl")}"
+  template = "${file("./userdata.tpl")}"
 }
 
 resource "aws_alb" "node-app-alb" {
