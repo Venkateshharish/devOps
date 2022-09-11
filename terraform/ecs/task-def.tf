@@ -8,7 +8,7 @@ resource "aws_ecs_task_definition" "node-task" {
 }
 
 data "template_file" "task_definition" {
-  template = file("D:/Study/node-js/terraform/ecs/task-definition.json")
+  template = file("./task-definition.json")
 }
 
 output "task-def" {
