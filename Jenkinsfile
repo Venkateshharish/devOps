@@ -39,9 +39,10 @@ pipeline{
         {
             steps{
                 script{
-                    dir('terraform')
+                    dir('terraform'){
                     echo "Terraform action is --> ${action}"
                     sh ('terraform ${action} --auto-approve')
+                    }
                 }
             }
         }
