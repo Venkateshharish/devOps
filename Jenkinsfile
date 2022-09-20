@@ -29,7 +29,7 @@ pipeline{
             steps{
                 script{
                     dir('terraform'){
-                    sh 'terraform init'
+                    sh 'terraform init -no-color'
                     }
                 
                 }
@@ -41,7 +41,7 @@ pipeline{
                 script{
                     dir('terraform'){
                     echo "Terraform action is --> ${action}"
-                    sh ('terraform ${action} --auto-approve')
+                    sh ('terraform ${action} --auto-approve -no-color')
                     }
                 }
             }
